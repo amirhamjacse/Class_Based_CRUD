@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Search</title>
+    <link rel="stylesheet" href="{% static 'school/css/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'school/css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container alert alert-danger text-center">
+        <h2>Search Students Data</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="container col-8 col-lg-8 col-md-6">
+            <form action="{% url 's' %}" method="get" id="myform">
+                <div class="form-group">
+                    <div class="input-group mb-5">
+                        <input class="form-control" type="number" name="s" id="s" placeholder="Search by roll" required>
+                        <span class="input-group-append">
+                        <button class="btn btn-primary" type="submit"> Search</button>
+                        </form>
+                        
+    
+                
+            </div>
+            </div>
+            </form>
+            <input class="btn btn-primary my-3" type="button" onclick="myFunc()"  value="Clear">
+            <a class="btn btn-primary" href="{% url 'student_info' %}">Back To Add New</a> 
+
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+    
+
+        <div class="container">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Registration</th>
+                <th>Department</th>
+            </tr>
+            {% for d in dat %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.roll}}</td>
+                <td>{{d.registration}}</td>
+                <td>{{d.department}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    
+    <script src="{% static 'school/js/jquery.js' %}"></script> 
+    <script src="{% static 'school/js/popper.js' %}"></script> 
+    <script src="{% static 'school/js/bootstrap.js' %}"></script> 
+    <script src="{% static 'school/js/reset.js' %}"></script> 
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <link rel="stylesheet" href="{% static 'school/css/bootstrap.css' %}"> 
+</head>
+<body>
+    {% comment %} student info collect form start{% endcomment %}
+
+    <div class="container">
+        <h3 class="text-center alert alert-primary">Class Based CRUD with Search</h3>
+    </div>
+    <div class="container ">
+        <h4 class='text-center alert alert-danger'>Student Info Form</h4>
+    </div>
+    <div class="container">
+    <form action="" method="post" id="myform">
+        {% csrf_token %}
+        {{fm.as_p}}
+        <input class="btn btn-primary" type="submit" value="Add">
+        <input class="btn btn-primary my-3" type="button" onclick="myFunc()"  value="Clear">
+        
+    </form>
+
+</div>
+    {% comment %} student info collect form ends {% endcomment %}
+
+    {% comment %} student info table ends {% endcomment %}
+    <br>
+    <div>
+        <div class="container ">
+        <h4 class='text-center alert alert-danger'>Student Information Table</h4>
+    </div>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Registration</th>
+                <th>Department</th>
+                <th>Action</th>
+            </tr>
+            {% for d in db %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.roll}}</td>
+                <td>{{d.registration}}</td>
+                <td>{{d.department}}</td>
+                <td>
+                    <div class="btn btn-group">
+                   <a class="btn btn-warning btn-sm" href="{% url 'updatedata' d.id %}">Edit</a>
+             
+                
+                    <form action="{% url 'deletedata' d.id  %}" method="post">
+                        {% csrf_token %}
+                    <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+                    </form>
+                </div>
+                </td>
+            </tr>
+            {% endfor %}
+            
+            </form>
+
+
+
+        </table>
+
+
+        
+        <form action="{% url 's' %}" method="get">
+            <div class="input-group mb-5">
+            <input class="form-control" type="number" name="s" id="s" placeholder="Search by roll" required>
+            <span class="input-group-append">
+            <button class="btn btn-primary" type="submit"> Search</button>
+            </form>
+        </span>
+        </div>
+
+
+        </table>
+
+     
+    </div>
+</div>
+    {% comment %} student info table ends {% endcomment %}
+
+    <script src="{% static 'school/js/jquery.js' %}"></script> 
+    <script src="{% static 'school/js/popper.js' %}"></script> 
+    <script src="{% static 'school/js/bootstrap.js' %}"></script> 
+    <script src="{% static 'school/js/reset.js' %}"></script> 
+
+
+</body>
+</html>
