@@ -1,4 +1,4 @@
-# Class_Based_CRUD 
+# Class_Based_CRUD
 Class based view and a simple CRUD application
 ![Screenshot (40)](https://user-images.githubusercontent.com/43343558/178089603-45309366-a0a6-4d59-aeb4-76403790b7d6.png)
 ![Screenshot (36)](https://user-images.githubusercontent.com/43343558/178089609-f0d79fae-2e34-4c8f-93c1-03451472cd60.png)
