@@ -41,6 +41,7 @@ class Search2(ListView):
         query = self.request.GET.get('s')
         return Database1.objects.filter(roll=query)
 
+
 class UpdtV(View):
     def get(self, request, id):
         pi = Database1.objects.get(pk=id)
@@ -53,3 +54,7 @@ class UpdtV(View):
         if fm.is_valid():
             fm.save()
         return HttpResponseRedirect('/')
+
+
+
+  
